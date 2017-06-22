@@ -1,7 +1,5 @@
 import sys
-from PyQt4 import QtGui
-# from PyQt4.QtCore import *
-import time
+from PyQt4 import QtGui, QtCore
 
 class InitWindow(QtGui.QWidget):
 	def __init__(self):
@@ -43,9 +41,12 @@ class InitWindow(QtGui.QWidget):
 
 
 		callButton = QtGui.QPushButton("Call")
+		callButton.setStyleSheet('QPushButton {color: green;}')
 		cancelButton = QtGui.QPushButton("Cancel")
+		cancelButton.setStyleSheet('QPushButton {color: red;}')
+	
 		callButton.clicked.connect(self.handleButton)
-		cancelButton.clicked.connect(self.handleButton)
+		cancelButton.clicked.connect(QtCore.QCoreApplication.instance().quit)
 
 		grid.addWidget(callButton,4,4)
 		grid.addWidget(cancelButton,5,4)
