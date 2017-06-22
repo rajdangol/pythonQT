@@ -1,4 +1,5 @@
 import sys
+import subprocess
 from PyQt4 import QtGui, QtCore
 
 class InitWindow(QtGui.QWidget):
@@ -65,6 +66,7 @@ class InitWindow(QtGui.QWidget):
 	def handleButton(self):
 		sender = self.sender()
 		print (sender.text())
+		subprocess.call(['python','hello.py'])			#calls a different script
 
 
 def main():
