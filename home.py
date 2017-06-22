@@ -1,6 +1,7 @@
-"""Yo chai aba call garna milne type ..
-number nai thichera call garnu paryo vane type"""
-
+"""Yo chai home page jasto...first page IVR system ko
+esma chai aba options haru hunxa ani tya click garexi siddhai call janxa
+ani tespaxi uta bata response aauxa
+"""
 import sys
 import subprocess
 from PyQt4 import QtGui, QtCore
@@ -23,17 +24,10 @@ class InitWindow(QtGui.QWidget):
 
 	def addButtons(self,grid):
 		
-		self.lcdDisplay = QtGui.QLCDNumber(self)
-		self.lcdDisplay.display('0')
-
-		grid.addWidget(self.lcdDisplay,1,0,1,5)
-
-		names = ['1', '2','3',
-				'4','5','6',
-				'7','8','9',
-				'*','0','#',
+		names = ['Emergency','NTC/Ncell','Banks','ISP',
+				'Shopping Centres','Others'
 				]
-		positions = [(i,j) for i in range(3,7) for j in range(3)]
+		positions = [(i,j) for i in range(3) for j in range(3)]
 
 		for position, name in zip(positions, names):
 
@@ -41,40 +35,30 @@ class InitWindow(QtGui.QWidget):
 				continue
 			button = QtGui.QPushButton(name)
 			grid.addWidget(button, *position)
-			button.clicked.connect(self.buttonClicked)
+		
 
-
-		callButton = QtGui.QPushButton("Call")
-		callButton.setStyleSheet('QPushButton {color: green;}')
+		keyButton = QtGui.QPushButton("Keypad")
+		keyButton.setStyleSheet('QPushButton {color: green;}')
 		cancelButton = QtGui.QPushButton("Cancel")
 		cancelButton.setStyleSheet('QPushButton {color: red;}')
 	
-		callButton.clicked.connect(self.handleButton)
+		keyButton.clicked.connect(self.handleButton)
 		cancelButton.clicked.connect(QtCore.QCoreApplication.instance().quit)
 
-		grid.addWidget(callButton,4,4)
-		grid.addWidget(cancelButton,5,4)
+		grid.addWidget(keyButton,4,0)
+		grid.addWidget(cancelButton,4,2)
 
-	s = ''
-	def buttonClicked(self):
-		sender = self.sender()
-		
-		msg = sender.text()
-		a = str(msg)
-		self.s = self.s + a
-		print self.s
-		
-		self.lcdDisplay.display(self.s)
-
+	
 	def handleButton(self):
 		sender = self.sender()
 		print (sender.text())
-		subprocess.call(['python','hello.py'])			#calls a different script
+		subprocess.call(['python','first.py'])			#calls a different script
 
 
 def main():
 	app = QtGui.QApplication(sys.argv)
 	ex = InitWindow()
+
 	sys.exit(app.exec_())
 
 
