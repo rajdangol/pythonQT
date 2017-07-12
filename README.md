@@ -1,4 +1,10 @@
 # pythonQT
+
+## specific.py
+
+YO chai home page
+
+
 ## home.pyw
 
 
