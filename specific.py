@@ -22,13 +22,13 @@ class InitWindow(QtGui.QWidget):
 		pic.setPixmap(QtGui.QPixmap("logo.jpg"))
 		grid.addWidget(pic, 0, 1)
 
-		welcome = QtGui.QLabel(u'\u0928\u092e\u0938\u094d\u0924\u0947 \n' + "Welcome to the IVR system		" + u'\u0924\u092a\u093e\u0908 \u092e\u0941\u0916\u094d\u092f \u092e\u0947\u0928\u0941\u092e\u093e \u0939\u0941\u0928\u0941\u0939\u0941\u0928\u091b ')
+		welcome = QtGui.QLabel('\t \t  ' u'\u0928\u092e\u0938\u094d\u0924\u0947' + "	Welcome to the IVR system	\n" + "You are at the main menu\t \t \t" + u'\u0924\u092a\u093e\u0908 \u092e\u0941\u0916\u094d\u092f \u092e\u0947\u0928\u0941\u092e\u093e \u0939\u0941\u0928\u0941\u0939\u0941\u0928\u091b ')
 		grid.addWidget(welcome,1,1)
 
 		self.addButtons(grid)
 
 		self.setWindowTitle('IVR Solutions')
-		self.setGeometry(250,250,500,500)
+		self.setGeometry(350,100,500,500)
 		self.show()
 
 	def addButtons(self,grid):	

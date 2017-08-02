@@ -32,7 +32,7 @@ class InitWindow(QtGui.QWidget):
         first.mousePressEvent = self.textClicked
 
         self.setWindowTitle('IVR Solutions')
-        self.setGeometry(250,250,500,500)
+        self.setGeometry(350,100,500,500)
         self.show()
 
     def addButtons(self,grid):  
