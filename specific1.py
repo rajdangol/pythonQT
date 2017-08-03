@@ -23,9 +23,9 @@ class InitWindow(QtGui.QWidget):
 
         marketing = QtGui.QLabel("You are at Marketing Menu \t" + u'\u0924\u092a\u093e\u0908\u0902 \u092e\u093e\u0930\u094d\u0915\u0947\u091f\u093f\u0919 \u092e\u0947\u0928\u0941\u092e\u093e \u0939\u0941\u0928\u0941\u0939\u0941\u0928\u094d\u091b \n' +
             '-----------------------------------------------------------------------------------------')
-        first = QtGui.QLabel(u'\u0967' + '  Marketing Director  ' + u'\u092e\u093e\u0930\u094d\u0915\u0947\u091f\u093f\u0919 \u0921\u093f\u0930\u0947\u0915\u094d\u091f\u0930 ')
+        first = QtGui.QLabel(u'\u0967' + ' Voice Message    ' + u'\u092d\u094d\u0935\u093e\u0907\u0938 \u092e\u0947\u0938\u0947\u091c ')
         second  = QtGui.QLabel(u'\u0968' + ' Promotions and Advertisement Manager   ' + u'\u092a\u094d\u0930\u094b\u092e\u094b\u0936\u0928 \u0930 \u0935\u093f\u091c\u094d\u091e\u093e\u092a\u0928 \u092e\u0947\u0928\u0947\u091c\u0930 ')
-        third = QtGui.QLabel(u'\u0969' + ' Voice Message    ' + u'\u092d\u094d\u0935\u093e\u0907\u0938 \u092e\u0947\u0938\u0947\u091c ')
+        third = QtGui.QLabel(u'\u0969' + '  Marketing Director  ' + u'\u092e\u093e\u0930\u094d\u0915\u0947\u091f\u093f\u0919 \u0921\u093f\u0930\u0947\u0915\u094d\u091f\u0930 ')
         
         back = QtGui.QLabel(u'\u0966' + '   Previous Menu   '+ u'\u092a\u0941\u0930\u093e\u0928\u094b \u092e\u0947\u0928\u0941')                     
 
@@ -41,6 +41,11 @@ class InitWindow(QtGui.QWidget):
         self.setGeometry(350,100,500,500)
         self.show()
 
+        a = 1;
+        print("What is the choice?")
+        a = input()
+        self.conditional(a)
+
     def addButtons(self,grid):  
 
         cancelButton = QtGui.QPushButton("Cancel")
@@ -49,6 +54,19 @@ class InitWindow(QtGui.QWidget):
         cancelButton.clicked.connect(QtCore.QCoreApplication.instance().quit)
 
         grid.addWidget(cancelButton,8,0)
+
+    def conditional(self,a):
+        if (a == 0):
+            print("menu is to repeated")
+        if (a == 1):
+            # subprocess.call(['python','specific1.py'])
+            print("You can now record your voice message")
+        if (a == 2):
+            print("not made right now")
+            # subprocess.call(['python','specific2.py'])
+        if (a == 3):
+            print("not made right now")
+            # subprocess.call(['python','specific3.py'])
 
     
 def main():
